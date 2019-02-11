@@ -68,8 +68,8 @@ namespace OOP2
             //airport.Land(ap);
             //Console.WriteLine(airport.AllTakeOff());
             //Allow to see results for airplane then clear screen for toyplane testing
-            Console.ReadLine();
-            Console.Clear();
+            //Console.ReadLine();
+            //Console.Clear();
 
             ToyPlane toy = new ToyPlane();
             Console.WriteLine(toy.About());

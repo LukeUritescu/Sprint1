@@ -8,20 +8,20 @@ namespace OOP2
 {
     public abstract class AerialVehicle
     {
-        public int CurrentAltitude { get; set; }
-        public Engine Engine { get; set; }
-        public bool IsFlying {get;set;} 
-        public int MaxAltitude { get; set; }
+        public int CurrentAltitude { get; protected set; }
+        public Engine Engine { get; protected set; }
+        public bool IsFlying {get; set;} 
+        public int MaxAltitude { get; protected set; }
 
         public string About()
         {
-            return this + " has a max altitude of " + MaxAltitude + " feet. \nIt's Current Altitude is: " + CurrentAltitude + " feet.\nThe " + getEngineStartedString();
+            return this + " has a max altitude of " + this.MaxAltitude + " feet. \nIt's Current Altitude is: " + this.CurrentAltitude + " feet.\nThe " + getEngineStartedString();
         }
         public AerialVehicle()
         {
             this.CurrentAltitude = 0;
             this.IsFlying = false;
-            Engine = new Engine();
+            this.Engine = new Engine();
         }
 
         public void FlyDown()
@@ -30,15 +30,15 @@ namespace OOP2
         }
         public void FlyDown(int HowManyFeet)
         {
-            if (IsFlying)
+            if (this.IsFlying)
             {
                 Console.WriteLine("The desired amount of feet to descend: " + HowManyFeet + " feet");
-                if ((CurrentAltitude - HowManyFeet) < 0)
+                if ((this.CurrentAltitude - HowManyFeet) < 0)
                     Console.WriteLine("The desired feet to descend is not a viable number. Please choose a number less or equal to current altitude");
                 else
                 {
-                    Console.WriteLine("The plane has descended " + HowManyFeet + " feet, and is now at " + (CurrentAltitude - HowManyFeet) + " feet");
-                    CurrentAltitude = CurrentAltitude - HowManyFeet;
+                    Console.WriteLine("The plane has descended " + HowManyFeet + " feet, and is now at " + (this.CurrentAltitude - HowManyFeet) + " feet");
+                    this.CurrentAltitude = this.CurrentAltitude - HowManyFeet;
                 }
             }
             else
@@ -50,15 +50,15 @@ namespace OOP2
         }
         public void FlyUp(int HowManyFeet)
         {
-            if (IsFlying)
+            if (this.IsFlying)
             {
                 Console.WriteLine("The desired amount of feet to ascend: " + HowManyFeet + " feet");
-                if ((HowManyFeet + CurrentAltitude) > MaxAltitude)
-                    Console.WriteLine("The desired feet to ascend is not a viable number. Please choose a number that will not exceed " + MaxAltitude);
+                if ((HowManyFeet + this.CurrentAltitude) > this.MaxAltitude)
+                    Console.WriteLine("The desired feet to ascend is not a viable number. Please choose a number that will not exceed " + this.MaxAltitude);
                 else
                 {
-                    Console.WriteLine(this + " has ascended " + HowManyFeet + " feet, and is now at " + (CurrentAltitude + HowManyFeet) + " feet");
-                    CurrentAltitude = CurrentAltitude + HowManyFeet;
+                    Console.WriteLine(this + " has ascended " + HowManyFeet + " feet, and is now at " + (this.CurrentAltitude + HowManyFeet) + " feet");
+                    this.CurrentAltitude = this.CurrentAltitude + HowManyFeet;
                 }
             }
             else
@@ -66,22 +66,22 @@ namespace OOP2
         }
         public string getEngineStartedString()
         {
-            if (Engine.IsStarted)
+            if (this.Engine.IsStarted)
                 return "Engine is started";
             else
                 return "Engine not started";
         }
         public virtual void StartEngine()
         {
-            Engine.Start();
+            this.Engine.Start();
         }
         public void StopEngine()
         {
-            Engine.Stop();
+            this.Engine.Stop();
         }
         public virtual string TakeOff()
         {
-            if (Engine.IsStarted)
+            if (this.Engine.IsStarted)
             {
                 IsFlying = true;
                 return "This engine has started";

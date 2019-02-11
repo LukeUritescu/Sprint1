@@ -26,7 +26,7 @@ namespace OOP2
 
         public string AllTakeOff()
         {
-            if (Vehicles.Count != 0) //To make sure there is no taking off if there are no vehicles at the airport
+            if (Vehicles.Count != 0) //To make sure nothing takes off
             {
                 for (int i = 0; i < Vehicles.Count; i++)
                 {
