@@ -20,33 +20,33 @@ namespace OOP2
     {
         public void Test()
         {
-            Console.WriteLine("Flying Vehicle Tester");
-            Console.WriteLine("\nAirplane.cs");
+            //Console.WriteLine("Flying Vehicle Tester");
+            //Console.WriteLine("\nAirplane.cs");
 
-            //Airplane class tests
-            Airplane ap = new Airplane();
-            //Airport airport = new Airport("ABCD", 0);
-            Console.WriteLine(ap.About());
+            ////Airplane class tests
+            //Airplane ap = new Airplane();
+            ////Airport airport = new Airport("ABCD", 0);
+            //Console.WriteLine(ap.About());
 
-            Console.WriteLine("\nAirplaneTakeOffTests.");
-            Console.WriteLine("\nCall ap.TakeOff():");
-            //This will fail
-            Console.WriteLine(ap.TakeOff());
-            Console.WriteLine("\nCall ap.StartEngine():");
-            ap.StartEngine();
-            Console.WriteLine(ap.TakeOff());
+            //Console.WriteLine("\nAirplaneTakeOffTests.");
+            //Console.WriteLine("\nCall ap.TakeOff():");
+            ////This will fail
+            //Console.WriteLine(ap.TakeOff());
+            //Console.WriteLine("\nCall ap.StartEngine():");
+            //ap.StartEngine();
+            //Console.WriteLine(ap.TakeOff());
 
-            //Fly up
-            Console.WriteLine("\nFly up Tests");
-            Console.WriteLine("\n Call ap.FlyUp() fly to 1,000ft default");
-            ap.FlyUp();
-            Console.WriteLine(ap.About());
-            Console.WriteLine("\nCall ap.FlyUp(44000) Flly up to 45,000ft:");
-            ap.FlyUp(44000);
-            Console.WriteLine(ap.About());
-            Console.WriteLine("\nCall ap.FlyUp(40000) Fly up another 40,000ft");
-            ap.FlyUp(40000);
-            Console.WriteLine(ap.About());
+            ////Fly up
+            //Console.WriteLine("\nFly up Tests");
+            //Console.WriteLine("\n Call ap.FlyUp() fly to 1,000ft default");
+            //ap.FlyUp();
+            //Console.WriteLine(ap.About());
+            //Console.WriteLine("\nCall ap.FlyUp(44000) Flly up to 45,000ft:");
+            //ap.FlyUp(44000);
+            //Console.WriteLine(ap.About());
+            //Console.WriteLine("\nCall ap.FlyUp(40000) Fly up another 40,000ft");
+            //ap.FlyUp(40000);
+            //Console.WriteLine(ap.About());
 
             //Land
             //Console.WriteLine("\nFly Down");
@@ -56,9 +56,9 @@ namespace OOP2
             //Console.WriteLine("Call ap.FlyDown(ap.CurrentAltitude) this should land");
             //ap.FlyDown(ap.CurrentAltitude);
             //Console.WriteLine(ap.About());
-            Console.ReadLine();
+            //Console.ReadLine();
 
-            Console.Clear();
+            //Console.Clear();
 
             ///
             // Testing Airport
