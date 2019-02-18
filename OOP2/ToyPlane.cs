@@ -8,11 +8,11 @@ namespace OOP2
 {
 
 
-    class ToyPlane : Airplane
+    public class ToyPlane : Airplane
     { 
         
        
-        private bool IsWoundUp;
+        public bool IsWoundUp;
 
         public string GetWindUpString()
         {
@@ -36,6 +36,7 @@ namespace OOP2
         {
             MaxAltitude = 50;
             IsFlying = false;
+            IsWoundUp = false;
         }
         public void UnWind()
         {

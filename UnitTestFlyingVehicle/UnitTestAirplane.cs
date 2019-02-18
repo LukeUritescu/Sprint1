@@ -133,25 +133,63 @@ namespace UnitTestFlyingVehicle
             ap = new Airplane();
             //Act
             string originalGetEngineString = ap.getEngineStartedString();
+            ap.StartEngine();
+            string engineTurnOnEngineString = ap.getEngineStartedString();
+            ap.StopEngine();
+            string engineTurnOffEngineString = ap.getEngineStartedString();
             //Assert
+            Assert.AreEqual(originalGetEngineString, engineTurnOffEngineString);
+            Assert.AreEqual("Engine is started", engineTurnOnEngineString);
+            Assert.AreEqual("Engine not started", engineTurnOffEngineString);
         }
 
         [TestMethod]
         public void TestAirPlaneStartEngine()
         {
-
+            //Arrange
+            ap = new Airplane();
+            //Act
+            bool defaultEngineState = ap.Engine.IsStarted;
+            ap.StartEngine();
+            bool afterEngineStart = ap.Engine.IsStarted;
+            //Assert
+            Assert.AreEqual(false, defaultEngineState);
+            Assert.AreEqual(true, afterEngineStart);
         }
 
         [TestMethod]
         public void TestAirPlaneStopEngine()
         {
-
+            //Arrange
+            ap = new Airplane();
+            //Act
+            bool defaultEngineState = ap.Engine.IsStarted;
+            ap.StartEngine();
+            bool testEngineOn = ap.Engine.IsStarted;
+            ap.StopEngine();
+            bool afterEngineStopped = ap.Engine.IsStarted;
+            //Assert
+            Assert.AreEqual(false, defaultEngineState);
+            Assert.AreEqual(true, testEngineOn);
+            Assert.AreEqual(afterEngineStopped, defaultEngineState);
         }
 
         [TestMethod]
         public void TestAirPlaneTakeOff()
         {
-
+            //Arrange
+            ap = new Airplane();
+            //Act
+            string defaultTakeOffString = ap.TakeOff();
+            bool defaultFlyingState = ap.IsFlying;
+            ap.StartEngine();
+            string afterEngineStart = ap.TakeOff();
+            bool afterFlyingState = ap.IsFlying;
+            //Assert
+            Assert.AreEqual("This engine can't fly until the engine is started", defaultTakeOffString);
+            Assert.AreEqual(false, defaultFlyingState);
+            Assert.AreEqual("This engine has started", afterEngineStart);
+            Assert.AreEqual(true, afterFlyingState);
         }
     }
 }
